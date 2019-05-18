@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+    <title>画像リサイズ</title>
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap">
+    <link rel="stylesheet" href="./assets/css/main.css">
+  </head>
+  <body>
+    <div id="app">
+      <header class="title">
+        <span class="title__text">Tapir</span>
+      </header>
+      <main class="main">
+        <transition name="fade" mode="out-in">
+          <div
+            id="droparea"
+            class="droparea"
+            :class="{ active: isDrop }"
+            v-if="phase === 0"
+            key="stay"
+            @dragleave.prevent="{{ isDrop = false }}"
+            @dragover.prevent="{{ isDrop = true }}"
+            @drop.prevent="onDrop"
+          >
+            <div class="droparea__info">
+              <i class="fas fa-images"></i>
+              <span>Please drag and drop the images.</span>
+            </div>
+          </div>
+          <div class="progress" v-if="phase === 1" key="execute">
+            <div id="progress"></div>
+          </div>
+          <div class="complete" v-if="phase === 2" key="complete">
+            <div id="complete">{{ completeMessage }}</div>
+          </div>
+        </transition>
+      </main>
+    </div>
+    <script src="./node_modules/vue/dist/vue.min.js"></script>
+    <script>require('./renderer.js')</script>
+  </body>
+</html>

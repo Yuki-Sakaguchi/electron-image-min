@@ -1,0 +1,31 @@
+{
+  "name": "electron-image-min",
+  "version": "1.0.0",
+  "description": "画像をミニファイするElectron製アプリケーション",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . & npm run css:watch",
+    "rebuild": "electron-rebuild",
+    "css:watch": "chokidar 'src/scss/' -c 'npm run css:build'",
+    "css:build": "npm run css:sass & npm run css:prefix",
+    "css:sass": "node-sass src/scss/*.scss -o assets/css/ --output-style expanded",
+    "css:prefix": "postcss assets/css/*.css --use autoprefixer -d assets/css/"
+  },
+  "author": "Yuki Sakaguchi",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^9.5.1",
+    "chokidar-cli": "^1.2.2",
+    "electron": "^3.0.4",
+    "electron-rebuild": "^1.8.2",
+    "node-sass": "^4.12.0",
+    "postcss-cli": "^6.1.2"
+  },
+  "dependencies": {
+    "animejs": "^3.0.1",
+    "progressbar.js": "^1.0.1",
+    "sharp": "^0.21.0",
+    "vue": "^2.5.17"
+  }
+}

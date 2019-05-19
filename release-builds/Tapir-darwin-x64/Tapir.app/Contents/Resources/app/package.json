@@ -9,6 +9,7 @@
     "rebuild": "electron-rebuild",
     "build:mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/app.icns --prune=true --out=release-builds",
     "build:win": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Electron Tutorial App\"",
+    "build:icns": "iconutil -c icns app.iconset",
     "css:watch": "chokidar 'src/scss/' -c 'npm run css:build'",
     "css:build": "npm run css:sass & npm run css:prefix",
     "css:sass": "node-sass src/scss/*.scss -o assets/css/ --output-style expanded",
@@ -20,15 +21,14 @@
     "autoprefixer": "^9.5.1",
     "chokidar-cli": "^1.2.2",
     "electron": "^3.0.4",
+    "electron-packager": "^13.1.1",
     "electron-rebuild": "^1.8.2",
     "node-sass": "^4.12.0",
     "postcss-cli": "^6.1.2"
   },
   "dependencies": {
-    "animejs": "^3.0.1",
-    "electron-packager": "^13.1.1",
+    "electron-sharp": "^0.20.8",
     "progressbar.js": "^1.0.1",
-    "sharp": "^0.21.0",
     "vue": "^2.5.17"
   }
 }

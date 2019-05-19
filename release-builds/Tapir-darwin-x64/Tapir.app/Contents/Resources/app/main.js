@@ -4,9 +4,13 @@
 const electron = require('electron')
 const app = electron.app
 const BrowserWindow = electron.BrowserWindow
+const Menu = electron.Menu
 
 let mainWindow
 
+/**
+ * ウィンドウの設定
+ */
 function createWindow () {
   const screen = electron.screen.getPrimaryDisplay()
   const width = 350
@@ -24,7 +28,7 @@ function createWindow () {
   })
 
   mainWindow.loadURL(`file://${__dirname}/index.html`)
-  
+
   mainWindow.on('closed', () => mainWindow = null)
 }
 

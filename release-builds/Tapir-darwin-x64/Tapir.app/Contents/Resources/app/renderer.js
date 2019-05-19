@@ -6,7 +6,7 @@
 
 const fs = require('fs')
 const path = require('path')
-const sharp = require('sharp')
+const sharp = require('electron-sharp')
 const ProgressBar = require('progressbar.js')
 
 /** プログレスバー */
@@ -130,7 +130,7 @@ const methods = {
                 if (!fs.existsSync(dir + '/min/')) {
                     fs.mkdirSync(dir + '/min/')
                 }
-    
+
                 sharp(file.path)
                 .toBuffer()
                 .then(data => {

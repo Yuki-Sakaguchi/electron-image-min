@@ -21,15 +21,14 @@
     "autoprefixer": "^9.5.1",
     "chokidar-cli": "^1.2.2",
     "electron": "^3.0.4",
+    "electron-packager": "^13.1.1",
     "electron-rebuild": "^1.8.2",
     "node-sass": "^4.12.0",
     "postcss-cli": "^6.1.2"
   },
   "dependencies": {
-    "animejs": "^3.0.1",
-    "electron-packager": "^13.1.1",
+    "electron-sharp": "^0.20.8",
     "progressbar.js": "^1.0.1",
-    "sharp": "^0.21.0",
     "vue": "^2.5.17"
   }
 }

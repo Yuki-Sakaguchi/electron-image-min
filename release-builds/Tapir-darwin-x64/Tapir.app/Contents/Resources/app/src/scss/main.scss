@@ -1,0 +1,106 @@
+$c_main: #297082;
+$c_sub: #e4cfd7;
+
+
+/* --------------------------------
+  common
+-------------------------------- */
+html,
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background-color: $c_main;
+  color: $c_sub;
+}
+
+
+/* --------------------------------
+  ui
+-------------------------------- */
+#app {
+  position: absolute;
+  top:  0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  padding-top: 24px;
+}
+
+.title {
+  -webkit-app-region: drag; /* ドラッグでwindowの移動可能にする */
+  -webkit-user-select: none; /* 選択不可 */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 24px;
+  z-index: 9999;
+  text-align: center;
+  &__text {
+    font-size: 14px;
+  }
+}
+
+.main {
+  -webkit-app-region: no-drag;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+
+/* --------------------------------
+  ドラッグ&ドロップ
+-------------------------------- */
+.droparea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  &.active {
+    cursor: copy;
+  }
+  &__info {
+    text-align: center;
+    i {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 2.6rem;
+    }
+    span {
+      font-size: 12px;
+    }
+  }
+}
+
+
+/* --------------------------------
+  プログレスバー
+-------------------------------- */
+.progress {
+  margin: 20px;
+  width: 140px;
+  position: relative;
+  &-text {
+    font-size: 1.8rem;
+    line-height: 1;
+  }
+}
+
+
+/* --------------------------------
+  vueのアニメーション
+-------------------------------- */
+.fade {
+  &-enter-active,
+  &-leave-active {
+    transition: opacity 0.2s;
+  }
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+  }
+}
